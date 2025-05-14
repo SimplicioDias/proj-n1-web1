@@ -1,33 +1,52 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react"
+import "./App.css"
+import SearchPlayer from "./components/searchPlayer.jsx"
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [player, setPlayer] = useState(null)
+  const [error, setError] = useState(null)
+  const [isLoading, setIsLoading] = useState(false)
+
+  const options = {
+    method: "GET",
+    headers: {
+      "x-rapidapi-key": "980805025emsh0b625f38045dff8p19cbacjsndd4c87d912e2",
+      "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
+    },
+  }
+  const handleSearch = async (namePlayer) => {
+    try {
+      setIsLoading(true)
+      setError(null)
+      const response = await fetch(
+        `https://api-football-v1.p.rapidapi.com/v3/players/profiles?search=${namePlayer}`,
+        options
+      )
+      
+      if (!response.ok) {
+        throw new Error("Nenhum jogador encontrado")
+      }
+      const result = await response.text()
+      console.log(result)
+      setPlayer(result)
+    } catch (error) {
+      console.error(error)
+      setError(error)
+    } finally {
+      setIsLoading(false)
+    }
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <main>
+        <section>
+          <SearchPlayer onSearch={handleSearch} />
+        </section>
+        <section>
+          <div></div>
+        </section>
+      </main>
     </>
   )
 }
