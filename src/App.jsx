@@ -3,6 +3,15 @@ import "./App.css"
 import SearchPlayer from "./components/SearchPlayer.jsx"
 import CardAtleta from "./components/CardAtleta.jsx"
 
+// ITEM A : CHECK
+// ITEM B: CHECK
+// ITEM C: CHECK (ou PARCIALMENTE)
+// ITEM D: CHECK
+// ITEM E: 
+// ITEM F: 
+// ITEM G: CHECK
+// ITEM H: CHECK / PARCIAL
+
 function App() {
   const [player, setPlayer] = useState(null)
   const [error, setError] = useState(null)
