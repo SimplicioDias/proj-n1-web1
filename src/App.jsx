@@ -1,7 +1,16 @@
 import { useState } from "react"
 import "./App.css"
 import SearchPlayer from "./components/SearchPlayer.jsx"
-import CardAtleta from "./components/CardAtleta.jsx"
+import ListCards from "./components/ListaCards/ListCards.jsx"
+
+// ITEM A : CHECK
+// ITEM B: CHECK
+// ITEM C: CHECK 
+// ITEM D: CHECK
+// ITEM E: CHECK / PARCIAL
+// ITEM F:
+// ITEM G: CHECK
+// ITEM H: CHECK / PARCIAL
 
 function App() {
   const [player, setPlayer] = useState(null)
@@ -32,7 +41,6 @@ function App() {
       console.log(result)
       //console.log(result.response[0].player.name)
       setResult(result)
-
     } catch (error) {
       console.error(error)
       setError(error)
@@ -48,7 +56,7 @@ function App() {
           <SearchPlayer onSearch={handleSearch} />
         </section>
         <section>
-          <CardAtleta result={result} />
+          <ListCards result={result} />
         </section>
       </main>
     </>

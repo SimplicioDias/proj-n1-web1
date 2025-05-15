@@ -1,0 +1,27 @@
+.cardAtleta {
+  border: 1px, solid;
+  padding: 10px;
+  margin: 15px;
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  
+  img {
+    object-fit: cover;
+    width: 200px; 
+    height: 200px; 
+    border-radius: 50%;
+  }
+
+  .flex-col {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    flex-wrap: wrap;
+  }
+}
+
+.button {
+  border-radius: 50%;
+}

@@ -19,7 +19,7 @@ function SearchPlayer({ onSearch }) {
         value={namePlayer}
         onChange={(e) => setNamePlayer(e.target.value)}
       />
-      <button type="submit">Search</button>
+      <button type="submit">Buscar</button>
     </form>
   )
 }
