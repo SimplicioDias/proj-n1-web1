@@ -1,11 +1,13 @@
 import { useState } from "react"
 import "./App.css"
-import SearchPlayer from "./components/searchPlayer.jsx"
+import SearchPlayer from "./components/SearchPlayer.jsx"
+import CardAtleta from "./components/CardAtleta.jsx"
 
 function App() {
   const [player, setPlayer] = useState(null)
   const [error, setError] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
+  const [result, setResult] = useState("")
 
   const options = {
     method: "GET",
@@ -22,13 +24,15 @@ function App() {
         `https://api-football-v1.p.rapidapi.com/v3/players/profiles?search=${namePlayer}`,
         options
       )
-      
+
       if (!response.ok) {
         throw new Error("Nenhum jogador encontrado")
       }
-      const result = await response.text()
+      const result = await response.json()
       console.log(result)
-      setPlayer(result)
+      //console.log(result.response[0].player.name)
+      setResult(result)
+
     } catch (error) {
       console.error(error)
       setError(error)
@@ -44,7 +48,7 @@ function App() {
           <SearchPlayer onSearch={handleSearch} />
         </section>
         <section>
-          <div></div>
+          <CardAtleta result={result} />
         </section>
       </main>
     </>
