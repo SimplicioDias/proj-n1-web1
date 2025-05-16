@@ -1,6 +1,7 @@
 import React from "react"
 import SearchPlayer from "../SearchPlayer"
 import "./CardAtleta.css"
+import Favoritos from "../CardFavoritos/Favoritos"
 function CardAtleta({ player }) {
   const birth = player.birth
   let datePlace
@@ -21,7 +22,7 @@ function CardAtleta({ player }) {
 
   return (
     <>
-      <div className="cardAtleta">
+      <div className="cardAtleta" id="cardAtleta">
         <img src={player.photo} alt={player.name} />
         <div className="flex-col">
           <p>Nome: {player.name}</p>
@@ -33,8 +34,8 @@ function CardAtleta({ player }) {
           {player.weight && <p>Altura: {player.weight}</p>}
           {player.position && <p>Posição: {player.position}</p>}
         </div>
-        <div className="button">
-          <button  onClick={() => addFavoritos()}>
+        <div className="bttCard">
+          <button className="btt" onClick={addFavorito}>
             {" "}
             Adicionar aos Favoritos
           </button>
@@ -44,9 +45,10 @@ function CardAtleta({ player }) {
   )
 }
 
-function addFavoritos() {
-  // fazer adicinar o cadAtleta no componente PainelFavoritos
-  alert("Adicionado")
+function addFavorito() {
+  const addPlayer = document.getElementById("cardAtleta")
+  return addPlayer
 }
+
 
 export default CardAtleta

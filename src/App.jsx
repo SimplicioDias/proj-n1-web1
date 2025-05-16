@@ -2,6 +2,7 @@ import { useState } from "react"
 import "./App.css"
 import SearchPlayer from "./components/SearchPlayer.jsx"
 import ListCards from "./components/ListaCards/ListCards.jsx"
+import Favoritos from "./components/CardFavoritos/Favoritos.jsx"
 
 // ITEM A : CHECK
 // ITEM B: CHECK
@@ -17,6 +18,8 @@ function App() {
   const [error, setError] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
   const [result, setResult] = useState("")
+  const [showFavoritos, setShowFavoritos] = useState(false);
+
 
   const options = {
     method: "GET",
@@ -53,11 +56,31 @@ function App() {
     <>
       <main>
         <section>
+          <button onClick={() => setShowFavoritos(!showFavoritos)}> Meus Favoritos</button>
+        </section>
+
+        {/* <section>
+          {showFavoritos && (
+            <section>
+
+            </section>
+          )}
+        </section> */}
+
+        {/* <section>
+          <div>
+            <Favoritos addFavorito={addFavoritoGlobal} />
+          </div>
+        </section> */}
+
+        <section>
           <SearchPlayer onSearch={handleSearch} />
         </section>
+
         <section>
           <ListCards result={result} />
         </section>
+
       </main>
     </>
   )
