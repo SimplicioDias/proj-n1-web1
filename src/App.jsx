@@ -1,25 +1,27 @@
 import { useState } from "react"
 import "./App.css"
 import SearchPlayer from "./components/SearchPlayer.jsx"
-import ListCards from "./components/ListaCards/ListCards.jsx"
 import Favoritos from "./components/CardFavoritos/Favoritos.jsx"
+import CardAtleta from "./components/CardAtleta/CardAtleta.jsx"
 
 // ITEM A : CHECK
 // ITEM B: CHECK
-// ITEM C: CHECK 
+// ITEM C: CHECK
 // ITEM D: CHECK
-// ITEM E: CHECK / PARCIAL
-// ITEM F:
+// ITEM E: CHECK 
+// ITEM F: CHECK
 // ITEM G: CHECK
-// ITEM H: CHECK / PARCIAL
+// ITEM H: CHECK
 
 function App() {
-  const [player, setPlayer] = useState(null)
   const [error, setError] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
   const [result, setResult] = useState("")
-  const [showFavoritos, setShowFavoritos] = useState(false);
+  const [favoritos, setFavoritos] = useState([])
 
+  const handleAddFavorito = (player) => {
+    setFavoritos((prev) => [...prev, player])
+  }
 
   const options = {
     method: "GET",
@@ -55,32 +57,23 @@ function App() {
   return (
     <>
       <main>
-        <section>
-          <button onClick={() => setShowFavoritos(!showFavoritos)}> Meus Favoritos</button>
-        </section>
-
-        {/* <section>
-          {showFavoritos && (
-            <section>
-
-            </section>
-          )}
-        </section> */}
-
-        {/* <section>
-          <div>
-            <Favoritos addFavorito={addFavoritoGlobal} />
-          </div>
-        </section> */}
-
-        <section>
+        <section className="flex">
           <SearchPlayer onSearch={handleSearch} />
+          <button onClick={() => setShowFavoritos(!showFavoritos)}>
+            Meus Favoritos
+          </button>
         </section>
-
         <section>
-          <ListCards result={result} />
+          {result?.response?.map((r) => (
+            <CardAtleta
+              key={r.player.id}
+              player={r.player}
+              onAddFavorito={handleAddFavorito}
+            />
+          ))}
+          <Favoritos favoritos={favoritos} />
         </section>
-
+        {console.log(favoritos)}
       </main>
     </>
   )
