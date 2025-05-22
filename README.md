@@ -1,12 +1,26 @@
-# React + Vite
+# Projeto Acadêmico - Pesquisa de Atletas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é um projeto acadêmico desenvolvido com ReactJS para fins educacionais, que permite pesquisar atletas de diversos esportes e gerenciar uma lista de favoritos.
 
-Currently, two official plugins are available:
+## Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🔍 Pesquisa de atletas por nome utilizando uma API da RapidAPI
+- 🏅 Exibição dos atletas em cards individuais (`CardAtleta`)
+- 📸 Visualização de imagens dos atletas
+- ❤️ Botão para adicionar/remover atletas dos favoritos
+- 📊 Painel de favoritos para visualizar todos os atletas selecionados
 
-## Expanding the ESLint configuration
+## Tecnologias Utilizadas
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![React](https://img.shields.io/badge/react-0D0628.svg?style=for-the-badge&logo=react) 
+## Como Executar o Projeto Localmente
+
+1. Clone o repositório:
+```bash
+git clone https://github.com/SimplicioDias/proj-n1-web1.git
+```
+2. Instale as dependências:
+```bash
+npm install
+```
