@@ -1,36 +1,73 @@
+
+
+.cardAtleta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.cardAtleta img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid #eee;
+}
+
+.cardAtleta .flex-col {
+  flex: 1;
+}
+
+.cardAtleta p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.cardAtleta p:first-child {
+  font-weight: bold;
+  font-size: 16px;
+  color: var(--primary-color);
+}
+
 .cardAtleta {
-  border: 1px, solid;
-  padding: 10px;
-  margin: 15px;
-  width: auto;
-  height: auto;
   display: flex;
-  align-items: center;
-  background-color: hsl(0, 1%, 20%);
-
-  img {
-    object-fit: cover;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-  }
-
-  .flex-col {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    flex-wrap: wrap;
-  }
+  gap: 20px;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .bttCard {
-  border-radius: 50%;
+  display: flex;
+  align-items: flex-end;
 }
 
-.bttCard:active {
-  background-color: green;
+.btt {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-.bttCard button {
-  background-color: green;
+.btt:hover {
+  background-color: #45a049;
+}
+
+@media (prefers-color-scheme: light) {
+  .cardAtleta{
+    background-color: #f8f9fa;
+    color: #213547;
+    border: 1px solid #dee2e6;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .cardAtleta {
+    background-color: #2d2d3a;
+    color: #ffffff;
+    border: 1px solid #495057;
+  }
 }
